@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import com.google.gson.Gson
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        val navigateToCalcButton: Button = findViewById(R.id.navigateToCalcButton) // Replace with the actual button ID
+        navigateToCalcButton.setOnClickListener {
+            val intent = Intent(this@MainActivity, calc::class.java)
+            startActivity(intent)
+        }
 
         // Initialize the views
         val editTextNumber: EditText = findViewById(R.id.editText)
